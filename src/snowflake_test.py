@@ -17,17 +17,11 @@ username = 'dbuser'
 password = 'password_goes_here'
 host = 'url_goes_here'
 port = '3306'  # default MySQL port is 3306
-database_name = 'applicants'
+database_name = 'db_name'
 
-applicants_report_filename = 'sql/applicants_dataset_test.sql'
-campaigns_report_filename = 'sql/campaign_dataset.sql'
-files_uploaded_report_filename = 'sql/files_uploaded_dataset_test.sql'
+query_filename = 'sql/test_query.sql'
 
-applicants_snowflake_table = 'source_cir_applicants_us_test'
-campaigns_snowflake_table = 'source_cir_campaigns_us_test'
-files_uploaded_snowflake_table = 'source_cir_files_uploaded_us_test'
-
-# BBC -> cir-prd-bbc-main-rds-cmk.ckrwh3yhpk85.eu-west-1.rds.amazonaws.com
+snowflake_table = 'snowflake_destination_table'
 
 # Define the MySQL connection string
 # Format: dialect+driver://username:password@host:port/database
@@ -56,34 +50,15 @@ try:
     # Now you can use the engine to execute queries, create sessions, etc.
     
     # applicants 
-    file = open(applicants_report_filename, 'r')
+    file = open(query_filename, 'r')
     sql_code = " ".join(file.readlines())
-    print('Fetching data from MySQL with query: {}'.format(applicants_report_filename))
+    print('Fetching data from MySQL with query: {}'.format(query_filename))
     df = pd.read_sql_query(sql_code, mysql_connection)
     # connect to snowflake and insert the DF into the table there
-    print('Loading dataframe to Snowflake table: {}'.format(applicants_snowflake_table))
-    df.to_sql(applicants_snowflake_table, snowflake_engine, index=False, if_exists='replace', chunksize=10000) #make sure index is False, Snowflake doesnt accept indexes
+    print('Loading dataframe to Snowflake table: {}'.format(snowflake_table))
+    df.to_sql(snowflake_table, snowflake_engine, index=False, if_exists='replace', chunksize=10000) #make sure index is False, Snowflake doesnt accept indexes
     print('Data loaded into Snowflake, next load ...')
-
-    # # campaigns
-    file = open(campaigns_report_filename, 'r')
-    sql_code = " ".join(file.readlines())
-    print('Fetching data from MySQL with query: {}'.format(campaigns_report_filename))
-    df = pd.read_sql_query(sql_code, mysql_connection)
-    print('Loading dataframe to Snowflake table: {}'.format(campaigns_snowflake_table))
-    df.to_sql(campaigns_snowflake_table, snowflake_engine, index=False, if_exists='replace', chunksize=10000) #make sure index is False, Snowflake doesnt accept indexes
-    print('Data loaded into Snowflake, next load ...')
-
-    # files uploaded
-    file = open(files_uploaded_report_filename, 'r')
-    sql_code = " ".join(file.readlines())
-    print('Fetching data from MySQL with query: {}'.format(files_uploaded_report_filename))
-    df = pd.read_sql_query(sql_code, mysql_connection)
-    print('Loading dataframe to Snowflake table: {}'.format(campaigns_snowflake_table))
-    df.to_sql(files_uploaded_snowflake_table, snowflake_engine, index=False, if_exists='replace', chunksize=10000) #make sure index is False, Snowflake doesnt accept indexes
-    print('Data loaded into Snowflake, next load ...')
-    
-
+   
 except ProgrammingError as e:
     # Handle specific programming errors, e.g., syntax errors in SQL statements
     error_message = f"ProgrammingError occurred: {str(e)}"
