@@ -1,0 +1,168 @@
+An unexpected error occurred: [Errno 2] No such file or directory: 'applicants_dataset_eu.sql'
+An unexpected error occurred: (snowflake.connector.errors.ProgrammingError) 001795 (42601): SQL compilation error: error line 1 at position 132
+maximum number of expressions in a list exceeded, expected at most 16,384, got 100,000
+[SQL: INSERT INTO test_cir_applicants_eu (id, "customerId", "projectId", "applicantId", "dateRegistered", controls, "registrationMethod") VALUES (%(id)s, %(customerId)s, %(projectId)s, %(applicantId)s, %(dateRegistered)s, %(controls)s, %(registrationMethod)s)]
+[parameters: ({'id': 1000, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-7-2832', 'dateRegistered': datetime.datetime(2016, 8, 3, 15, 0, 41), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1001, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-7-2833', 'dateRegistered': datetime.datetime(2016, 8, 3, 15, 1, 3), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1002, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-7-2922', 'dateRegistered': datetime.datetime(2016, 8, 7, 17, 52, 31), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1003, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-7-2987', 'dateRegistered': datetime.datetime(2016, 8, 11, 13, 36, 3), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1004, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-7-2988', 'dateRegistered': datetime.datetime(2016, 8, 11, 13, 36, 39), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1005, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-9-5097', 'dateRegistered': datetime.datetime(2016, 8, 24, 12, 11, 43), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1006, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-9-5108', 'dateRegistered': datetime.datetime(2016, 8, 24, 15, 1, 50), 'controls': '{}', 'registrationMethod': 'manualAdmin'}, {'id': 1007, 'customerId': 613, 'projectId': 'b2283a', 'applicantId': 'b2283a-9-5109', 'dateRegistered': datetime.datetime(2016, 8, 24, 15, 2, 54), 'controls': '{}', 'registrationMethod': 'manualAdmin'}  ... displaying 10 of 100000 total bound parameter sets ...  {'id': 145613, 'customerId': 763, 'projectId': 'b1813a', 'applicantId': 'b1813a-2-34474', 'dateRegistered': datetime.datetime(2016, 3, 8, 10, 44, 51), 'controls': '{}', 'registrationMethod': 'manualSelf'}, {'id': 145614, 'customerId': 763, 'projectId': 'b1813a', 'applicantId': 'b1813a-2-34475', 'dateRegistered': datetime.datetime(2016, 3, 8, 10, 45, 23), 'controls': '{}', 'registrationMethod': 'manualSelf'})]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+An unexpected error occurred: (mysql.connector.errors.InterfaceError) 2003: Can't connect to MySQL server on 'cir-prd-us-db.cr4v05shrgei.us-east-1.rds.amazonaws.com:3306' (51 Network is unreachable)
+(Background on this error at: https://sqlalche.me/e/14/rvf5)
+An unexpected error occurred: (mysql.connector.errors.InterfaceError) 2003: Can't connect to MySQL server on 'cir-prd-us-db.cr4v05shrgei.us-east-1.rds.amazonaws.com:3306' (51 Network is unreachable)
+(Background on this error at: https://sqlalche.me/e/14/rvf5)
+An unexpected error occurred: Execution failed on sql 'SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_001 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_002 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_003 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_004 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized',
+        registrationMethod
+ FROM applicants.zzz2_apps_005 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_006 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_specific_globobbb_bbb21 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_specific_globobbb_bbb22 x LIMIT 100
+ UNION ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_specific_globobbb_bbb23 x LIMIT 100
+ union ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_specific_netflix x LIMIT 100
+ union ALL
+ SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+ FROM applicants.zzz2_apps_specific_spe_wof x LIMIT 100
+': 1221 (HY000): Incorrect usage of UNION and LIMIT
+An unexpected error occurred: (mysql.connector.errors.InterfaceError) 2003: Can't connect to MySQL server on 'cir-prd-us-db.cr4v05shrgei.us-east-1.rds.amazonaws.com:3306' (51 Network is unreachable)
+(Background on this error at: https://sqlalche.me/e/14/rvf5)
+An unexpected error occurred: 'Connection' object has no attribute 'cursor'
+ProgrammingError occurred: 090105 (22000): Cannot perform STAGE PUT. This session does not have a current database. Call 'USE DATABASE', or use a qualified name.
+ProgrammingError occurred: 002003 (02000): SQL compilation error:
+Stage 'DW_DEV.PUBLIC."%SJ_STAGE"' does not exist or not authorized.
+ProgrammingError occurred: 001757 (42601): SQL compilation error:
+Table 'SJ_CIR_TESTTABLE' does not exist
+An unexpected error occurred: (mysql.connector.errors.InterfaceError) 2003: Can't connect to MySQL server on 'cir-prd-eu-casting-db.ckrwh3yhpk85.eu-west-1.rds.amazonaws.com:3306' (51 Network is unreachable)
+(Background on this error at: https://sqlalche.me/e/14/rvf5)
+An unexpected error occurred: MySQL Connection not available
+An unexpected error occurred: Execution failed on sql 'SELECT id,
+        customerId,
+        projectId,
+        applicantId,
+        dateRegistered,
+        x.controls ->> '$.txtActName'      as txtActName,
+        x.controls ->> '$.txtEmailAddress' as txtEmailAddress,
+        x.controls ->> '$.cmbCastBy'       as cmbCastBy,
+        x.controls ->> '$.dateFinalized' as dateFinalized,
+        registrationMethod
+       FROM applicants.zzz2_apps_001
+': 1054 (42S22): Unknown column 'x.controls' in 'field list'
+An unexpected error occurred: MySQL Connection not available
+An unexpected error occurred: (mysql.connector.errors.InterfaceError) 2003: Can't connect to MySQL server on 'cir-prd-us-db.cr4v05shrgei.us-east-1.rds.amazonaws.com:3306' (51 Network is unreachable)
+(Background on this error at: https://sqlalche.me/e/14/rvf5)

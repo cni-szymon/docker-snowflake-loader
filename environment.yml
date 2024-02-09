@@ -1,0 +1,7 @@
+name: ts_snowflake_python
+dependencies:
+  - pandas==1.5.3
+  - SQLAlchemy
+  - conda-forge::snowflake-sqlalchemy
+  - snowflake-connector-python[pandas]
+  - mysql-connector-python

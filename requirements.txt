@@ -1,0 +1,8 @@
+
+SQLAlchemy
+# pyarrow==8.0.0
+# snowflake-sqlalchemy
+# pandas==1.5.3
+snowflake-connector-python[pandas]
+# snowflake-connector-python==2.9.0
+mysql-connector-python
