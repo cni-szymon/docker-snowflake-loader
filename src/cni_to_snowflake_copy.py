@@ -14,9 +14,9 @@ def log_error_to_file(file_name, message):
 # Replace the user, password, host, port, and database with your own details
 username = 'user_name_goes_here'
 password = 'password_goes_here'
-host = 'b21-db-rr.prd.castingnetworks.io'  # cir-prd-us-db.cr4v05shrgei.us-east-1.rds.amazonaws.com
+host = 'db_url_goes_here'
 port = 5432  # default MySQL port is 3306
-database_name = 'prdb21db'
+database_name = 'database_name_goes_here'
 
 table_name = 'account'
 snowflake_table = f'tmp_cni_{table_name}'
@@ -28,16 +28,16 @@ DATABASE_URL = f"postgresql://{username}:{password}@{host}:{port}/{database_name
 
 AWS_ACCESS_KEY_ID = 'aws_key_goes_here'
 AWS_SECRET_ACCESS_KEY = 'aws_secret_goes_here'
-S3_BUCKET_NAME = 'prd-bi-datalake'
+S3_BUCKET_NAME = 'bucket_name_goes_here'
 
 snowconn = snowflake.connector.connect(
     user="snowflake_user_goes_here",
     password="snowflake_password_goes_here",
-    account="wd94289.eu-west-1",
+    account="snowflake_account_id_goes_here",
     role_name="ACCOUNTADMIN",
     database="DOCKER_STG",
     schema="PUBLIC",
-    warehouse="PC_DBT_WH"
+    warehouse="warehouse_name_goes_here"
 )
 
 try:
